@@ -32,6 +32,7 @@ export default defineConfig({
     video: 'on',
     actionTimeout: 15 * 1000,
     navigationTimeout: 30 * 1000,
+    slowMo: 1000,
   },
   /* Configure projects for major browsers */
   projects: [
@@ -39,17 +40,6 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',

@@ -3,8 +3,8 @@ exports.EmployeeJobPage =
         constructor(page) {
             this.page = page;
             this.jobTab = "//a[normalize-space()='Job']";
-            this.jobTitleDropdown = "//div[contains(@class,'oxd-input-group')][.//label[text()='Job Title']]//div[contains(@class,'oxd-select-text')]";
-            this.employmentStatusDropdown = "//div[contains(@class,'oxd-input-group')][.//label[text()='Employment Status']]//div[contains(@class,'oxd-select-text')]";
+            this.jobTitleDropdown = "//div[contains(@class,'oxd-input-group')][.//label[text()='Job Title']]//div[contains(@class,'oxd-select-text-input')]";
+            this.employmentStatusDropdown = "//div[contains(@class,'oxd-input-group')][.//label[text()='Employment Status']]//div[contains(@class,'oxd-select-text-input')]";
             this.saveButton = "(//button[normalize-space()='Save'])[1]";
             this.successToast = "//div[contains(@class,'oxd-toast-content--success')]";
         }
@@ -18,13 +18,13 @@ exports.EmployeeJobPage =
         }
 
         async updateJobTitle(newTitle) {
-            await this.page.locator(this.jobTitleDropdown).click();
-            await this.page.locator(this.dropdownOption(newTitle)).click();
+            await this.page.locator(this.jobTitleDropdown).first().click();
+            await this.page.locator(this.dropdownOption(newTitle)).first().click();
         }
 
         async updateEmploymentStatus(newStatus) {
-            await this.page.locator(this.employmentStatusDropdown).click();
-            await this.page.locator(this.dropdownOption(newStatus)).click();
+            await this.page.locator(this.employmentStatusDropdown).first().click();
+            await this.page.locator(this.dropdownOption(newStatus)).first().click();
         }
 
         async save() {

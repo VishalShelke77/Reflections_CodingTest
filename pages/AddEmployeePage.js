@@ -14,11 +14,13 @@ exports.AddEmployeePage =
             this.personalDetailsHeader = "//h6[normalize-space()='Personal Details']";
         }
 
+        
         async open() {
             await this.page.locator(this.addEmployeeTab).click();
         }
 
         async addEmployee({ firstName, lastName, profilePicture }) {
+
             await this.page.locator(this.firstNameInput).fill(firstName);
             await this.page.locator(this.lastNameInput).fill(lastName);
 
@@ -29,6 +31,7 @@ exports.AddEmployeePage =
             }
 
             await this.page.locator(this.saveButton).click();
+            
             await this.page.locator(this.personalDetailsHeader).waitFor({ state: 'visible', timeout: 20000 });
 
             return employeeId;

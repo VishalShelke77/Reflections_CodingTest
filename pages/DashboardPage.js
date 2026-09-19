@@ -14,6 +14,7 @@ exports.DashboardPage =
 
         async logout() {
             await this.page.locator(this.userDropdown).click();
+            
             await this.page.locator(this.logoutLink).click();
         }
 
